@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+@model List<ForumPost>
+
+<section class="calculator-section">
+    <h1>@Html.ActionLink("New Post", "NewForumPost", "Home")</h1>
+    @foreach(ForumPost item in Model)
+    {
+        <h3>@item.Subject</h3>
+        <p>User: @item.Username</p>
+        <p>Posted: @item.PostDate</p>
+        <p>@item.Message</p>
+        <p></p>
+        <hr/>
+    
+    }
+
+
+</section>

@@ -1,0 +1,2 @@
+C:\Workspace\Teams\team9-c-week8-pair-exercises\ssgeek-exercises-pair\SSGeek\obj\Debug\SSGeek.csprojAssemblyReference.cache
+C:\Workspace\Teams\team9-c-week8-pair-exercises\ssgeek-exercises-pair\SSGeek\obj\Debug\SSGeek.csproj.CoreCompileInputs.cache

@@ -1,0 +1,27 @@
+﻿@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+@model List<Product>
+<section class="store-section">
+    <h2 class="calculator-header">Solar System Geek Gift Shop</h2>
+    <h3 class="centered">@Html.ActionLink("View Cart", "ViewCart", "ShoppingCart")</h3>
+
+    <div class="flex-container-column">
+        @foreach (Product item in Model)
+        {
+            <div class="flex-container">
+                <div class="store-img-container">
+                    <a href="@Url.Action("ProductDetail", "ShoppingCart", new { ProductId = item.ProductId.ToString() }, null)">
+                        <img class="store-img" src="~/Content/img/@(item.ImageName)" />
+                    </a>
+                </div>
+                <div class="store-description">
+                    <p class="store-item-title">@item.Name</p>
+                    <p class="store-item-price">$@item.Price</p>
+                </div>
+            </div>
+        }
+    </div>
+
+</section>

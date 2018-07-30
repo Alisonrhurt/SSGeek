@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+@model SSGeek.Models.AlienTransportViewModel
+
+<section class="calculator-section">
+<h2 class="calculator-header">Alien Age Result</h2>
+<div class="flex-container">
+    <div class="flex-child">
+        <img src="~/Content/img/@(Model.Planet.ToLower()).jpg" />
+    </div>
+    <div class="flex-child">
+        <form>
+            <h1>Traveling by @Model.ModeOfTransport you will reach @Model.Planet in @Model.TravelTime years.  You will be @Model.DestinationAge years old.</h1>
+        </form>
+    </div>
+</div>
+</section>

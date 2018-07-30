@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+@model ShoppingCart
+<section class="store-section">
+    <h2 class="calculator-header">Solar System Geek Gift Shop</h2>
+    @if (Model.Items.Count() == 0)
+    {
+        <h2 class="cart-empty">Your Cart is empty... @Html.ActionLink("Click here to look at all our cool stuff!", "Index", "ShoppingCart")</h2>
+    }
+    <div class="cart-container-column">
+        <div class="cart-container bold">
+            <div class="cart-img-container">
+            </div>
+            <div class="cart-name">
+                <p>Name</p>
+            </div>
+            <div class="cart-small">
+                <p>Price</p>
+            </div>
+            <div class="cart-small">
+                <p>Qty.</p>
+            </div>
+            <div class="cart-small">
+                <p>Total</p>
+            </div>
+        </div>
+
+        @if (Model.Items.Count() > 0)
+        {
+            foreach (ShoppingCartItem item in Model.Items)
+            {
+                <div class="cart-container">
+                    <div class="cart-img-container">
+                        <a href="@Url.Action("ProductDetail", "ShoppingCart", new { ProductId = item.Product.ProductId.ToString() }, null)">
+                            <img src="~/Content/img/@(item.Product.ImageName)" />
+                        </a>
+                    </div>
+                    <div class="cart-name">
+                        <p>@item.Product.Name</p>
+                        <p>@item.Product.Description</p>
+                    </div>
+                    <div class="cart-small">
+                        <p>@item.Product.Price.ToString("c")</p>
+                    </div>
+                    <div class="cart-small">
+                        <p>@item.Quantity</p>
+                    </div>
+                    <div class="cart-small">
+                        <p>@item.TotalPrice.ToString("c")</p>
+                    </div>
+                </div>
+            }
+        }
+        <div class="cart-grand-total">
+            <p class="bold-inline">Grand Total </p>
+            <p class="inline">@Model.GrandTotal.ToString("c")</p>
+            <p class="fake-link">Check Out Feature Coming Soon!</p>
+        </div>
+    </div>
+
+</section>

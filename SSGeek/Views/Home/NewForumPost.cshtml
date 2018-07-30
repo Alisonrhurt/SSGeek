@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+@model SSGeek.Models.ForumPost
+
+
+<section class="calculator-section">
+    @using (Html.BeginForm("NewForumPost", "Home", FormMethod.Post))
+    {
+        <div class="formInputGroup" ;>
+            @Html.Label("UserName", "Enter you UserName")
+            @Html.TextBox("UserName")
+        </div>
+        <div class="formInputGroup" ;>
+            @Html.Label("Subject", "Enter Subject for Post")
+            @Html.TextBox("Subject")
+        </div>
+        <div class="formInputGroup" ;>
+            @Html.Label("Message", "Enter Message")
+            @Html.TextBox("Message")
+        </div>
+
+        <button class="formSubmitButton">Submit!</button>
+    }
+</section>

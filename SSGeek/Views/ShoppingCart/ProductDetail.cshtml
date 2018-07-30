@@ -1,0 +1,27 @@
+﻿@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SSGeek.Models;
+@model Product
+<section class="store-section">
+    <h2 class="calculator-header">Solar System Geek Gift Shop</h2>
+    <div class="detail-container">
+        <div>
+            <img src="~/Content/img/@(Model.ImageName)" />
+        </div>
+        <div>
+            <h1>@Model.Name</h1>
+            <p class="store-item-price">@Model.Price</p>
+            <p>@Model.Description</p>
+            @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post))
+            {
+                @* Create a hidden input field to store the product id *@
+                <input type="hidden" value="@Model.ProductId" name="productID" />
+                @Html.Label("quantity", "Enter Quantity")
+                @Html.TextBox("quantity")
+                <button>Add to Cart</button>
+            }
+        </div>
+    </div>
+</section>

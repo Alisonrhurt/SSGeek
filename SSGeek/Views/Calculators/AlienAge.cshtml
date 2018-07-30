@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+@model SSGeek.Models.AlienAgeEnterModel
+
+<section class="calculator-section">
+    <h2 class="calculator-header">Alien Age!</h2>
+    <div class="flex-container">
+        <div class="flex-child">
+            <p>Choose a planet</p>
+            <p>Enter Your Earth Age</p>
+        </div>
+        <div class="flex-child">
+            <form method="get" action="@Url.Action("AlienAgeResult", "Calculators")">
+                @Html.DropDownListFor(m => m.Planet, AlienAgeModel.Planets, "Select Planet")
+                <p></p>
+                @Html.TextBoxFor(m => m.EarthAgeYears, new { placeholder = "enter earth age (in years), earthling!" })
+                <p></p>
+                <button>Calculate Age</button>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+﻿@using SSGeek.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model SSGeek.Models.AlienWeightViewModel
+<section class="calculator-section">
+    <h2 class="calculator-header">Alien Weight!</h2>
+    <div class="flex-container">
+        <div class="flex-child">
+            <img src="~/Content/img/@(Model.Planet.ToLower()).jpg" />
+        </div>
+        <div class="flex-child">
+            <form>
+
+                <h1>If you are @Model.EarthWeight lbs on Earth, you would weight @Model.AlienWeight lbs on @Model.Planet</h1>
+
+            </form>
+        </div>
+    </div>
+</section>
